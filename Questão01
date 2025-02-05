@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+
+int main() {
+    int INDICE = 13;
+    int SOMA = 0;
+    int K = 0;
+    
+    // Como é pedido enquanto no teste, eu preciso aumentar um valor de K para que ele percorra corretamente o loop
+    while (K < INDICE){
+        K = K + 1; 
+        SOMA = SOMA + K; 
+        printf("%d\n", SOMA);
+        K ++;
+    }
+    // O resultado sairá : 1, 4, 9, 16, 25, 36, 49
+    return 0;
+}
