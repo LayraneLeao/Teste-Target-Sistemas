@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <limits.h> // Para INT_MAX e INT_MIN
+#include <locale.h> // Necessário para setlocale()
+
+int main() {
+    // Para permitir a acentuação
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+    int faturamento[] = {1340, 1520, 1900, 1260, 3000, 1789, 2025};
+    int contador = 0;
+    int menor = INT_MAX;  // Inicializa com o maior valor possível
+    int maior = INT_MIN;  // Inicializa com o menor valor possível
+    int i;
+
+    for (i = 0; i < 7; i++) {
+        // Atualizar o menor valor
+        if (faturamento[i] < menor) {
+            menor = faturamento[i];
+        }
+        // Atualizar o maior valor
+        if (faturamento[i] > maior) {
+            maior = faturamento[i];
+        }
+        
+        // Contar os dias com faturamento maior que 1600
+        if (faturamento[i] >= 1600) {
+            contador += 1;
+        }
+    }
+    
+    printf("Número de dias no mês em que o valor de faturamento diário foi superior à média mensal: %d\n", contador);
+    printf("O menor valor de faturamento ocorreu em um dia do mês: %d\n", menor);
+    printf("O maior valor de faturamento ocorreu em um dia do mês: %d\n", maior);
+
+    return 0;
+}
