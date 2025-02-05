@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    int num, num1 = 0, num2 = 1, proximoNumero;
+
+    // Configurando o locale para suportar acentuação
+    setlocale(LC_ALL, "pt_BR.UTF-8");
+
+    // Perguntar ao usuário qual número ele quer verificar
+    printf("Digite um número para verificar se ele pertence à sequência de Fibonacci: ");
+    scanf("%d", &num);
+
+    // Caso o número seja 0 ou 1, ele pertence à sequência
+    if (num == 0 || num == 1) {
+        printf("O número %d pertence à sequência de Fibonacci.\n", num);
+    } else {
+        // Gerando a sequência de Fibonacci até encontrar o número
+        proximoNumero = num1 + num2;
+        while (proximoNumero < num) {
+            num1 = num2;
+            num2 = proximoNumero;
+            proximoNumero = num1 + num2;
+        }
+
+        // Verificando se o número está na sequência
+        if (proximoNumero == num) {
+            printf("O número %d pertence à sequência de Fibonacci.\n", num);
+        } else {
+            printf("O número %d NÃO pertence à sequência de Fibonacci.\n", num);
+        }
+    }
+
+    return 0;
+}
