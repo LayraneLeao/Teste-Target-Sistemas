@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+
+int main() {
+    float totalEstados;
+    // Em C eu não consigo considerar virgulas, portando fiz uma
+    float estadoSP = 67836.43;
+    float estadoRJ = 36678.66;
+    float estadoMG = 29229.88;
+    float estadoES = 27165.48;
+    float estadosOutros =  19849.53;
+    
+    float percentual;
+    
+    // Somando o total
+    totalEstados = estadoSP + estadoRJ + estadoMG + estadoES + estadosOutros;
+    
+    // Obtendo o percentual de cada estado
+    percentual = (estadoSP/totalEstados)* 100;
+    printf ("SP: %.2lf%%\n", percentual);
+
+    percentual = 0; /* To utilizando a cascata de dados por ser mais rápido, então a cada novo estado eu 
+limpo os dados do perentual, usando a mesma variável em todos os estados.*/
+    percentual = (estadoRJ/totalEstados)* 100;
+    printf ("RJ: %.2lf%%\n", percentual);
+
+    percentual = 0;
+    percentual = (estadoMG/totalEstados)* 100;
+    printf ("MG: %.2lf%%\n", percentual);
+
+    percentual = 0;
+    percentual = (estadoES/totalEstados)* 100;
+    printf ("ES: %.2lf%%\n", percentual);
+
+    percentual = 0;
+    percentual = (estadosOutros/totalEstados)* 100;
+    printf ("Outros Estados: %.2lf%%\n", percentual);
+    
+    
+    
+    return 0;
+}
